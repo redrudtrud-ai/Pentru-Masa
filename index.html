@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pentru Mașa ❤</title>
+<style>
+:root{--bg:#fff0f3;--bg2:#ffd6e0;--text:#5a0f2a;--accent:#e11d48;--card:rgba(255,255,255,.75);--shadow:rgba(225,29,72,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0610;--bg2:#3b0a1f;--text:#ffe4ec;--accent:#ff5c85;--card:rgba(60,10,30,.7);--shadow:rgba(255,92,133,.3)}}
+:root[data-theme="dark"]{--bg:#1a0610;--bg2:#3b0a1f;--text:#ffe4ec;--accent:#ff5c85;--card:rgba(60,10,30,.7);--shadow:rgba(255,92,133,.3)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);background:linear-gradient(160deg,var(--bg),var(--bg2));font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.h{position:absolute;bottom:-60px;color:var(--accent);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) translateX(0) rotate(-10deg);opacity:0}10%{opacity:.7}50%{transform:translateY(-55vh) translateX(25px) rotate(10deg)}100%{transform:translateY(-115vh) translateX(-15px) rotate(-10deg);opacity:0}}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px;background:var(--card);backdrop-filter:blur(8px)}
+nav button{font:inherit;border:2px solid var(--accent);background:transparent;color:var(--text);padding:8px 16px;border-radius:999px;cursor:pointer;transition:.2s}
+nav button.on,nav button:hover{background:var(--accent);color:#fff}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:24px 18px 60px}
+section{display:none;animation:in .6s}
+section.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(2.2rem,8vw,4rem);text-align:center;color:var(--accent);margin:.6em 0 .2em;line-height:1.15;text-shadow:0 4px 18px var(--shadow)}
+h2{text-align:center;color:var(--accent);font-size:1.8rem}
+.sub{text-align:center;font-size:1.2rem;font-style:italic}
+.beat{display:block;text-align:center;font-size:3.5rem;animation:beat 1.2s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+.card{background:var(--card);border-radius:18px;padding:16px 20px;margin:12px 0;box-shadow:0 6px 20px var(--shadow)}
+.card b{color:var(--accent)}
+.opts{display:grid;gap:10px;margin-top:14px}
+.opts button{font:inherit;font-size:1.05rem;padding:12px;border-radius:14px;border:2px solid var(--accent);background:transparent;color:var(--text);cursor:pointer;transition:.2s}
+.opts button:hover{background:var(--accent);color:#fff}
+.q{font-size:1.3rem;text-align:center}
+.fb{text-align:center;font-size:1.2rem;color:var(--accent);min-height:1.5em;margin-top:12px}
+.next{display:block;margin:16px auto 0;font:inherit;padding:10px 24px;border:0;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer}
+.letter{background:var(--card);border-radius:8px;padding:28px 24px;line-height:1.8;font-size:1.1rem;box-shadow:0 8px 28px var(--shadow);border-left:6px solid var(--accent)}
+.letter p{margin:0 0 1em}
+.sig{text-align:right;font-style:italic;color:var(--accent)}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<nav>
+<button data-p="home" class="on">🏠 Acasă</button>
+<button data-p="quiz">❓ Întrebări</button>
+<button data-p="letter">💌 Scrisoare</button>
+</nav>
+<main>
+
+<section id="home" class="on">
+<span class="beat">❤️</span>
+<h1>Mașa, te iubesc nespus de mult!</h1>
+<p class="sub">Mai mult decât cerul, mai mult decât stelele, mai mult decât pot spune în cuvinte. Ты просто моя няшечка вкусняшка</p>
+<h2>De ce te iubesc</h2>
+<div class="card"><b>1.</b> Pentru zâmbetul tău, care îmi luminează orice zi.</div>
+<div class="card"><b>2.</b> Pentru felul în care mă faci să mă simt special.</div>
+<div class="card"><b>3.</b> Pentru inima ta bună și blândă.</div>
+<div class="card"><b>4.</b> Pentru râsul tău, cel mai frumos sunet din lume.</div>
+<div class="card"><b>5.</b> Pentru că lângă tine mă simt acasă.</div>
+<div class="card"><b>6.</b> Pentru că ești tu: unică, frumoasă și a mea. ❤️</div>
+</section>
+
+<section id="quiz">
+<h2>Mici întrebări importante 💘</h2>
+<div class="card">
+<div class="q" id="qt"></div>
+<div class="opts" id="qo"></div>
+<div class="fb" id="qf"></div>
+<button class="next" id="qn" style="display:none"></button>
+</div>
+</section>
+
+<section id="letter">
+<h2>Scrisoare pentru tine 💌</h2>
+<div class="letter">
+<p>Dragă Mașa,</p>
+<p>Nu știu de unde să încep, pentru că tot ce simt pentru tine nu încape în câteva rânduri. Din ziua în care te-am cunoscut, viața mea a căpătat alte culori, mai calde și mai vii.</p>
+<p>Îmi place cum zâmbești, cum te uiți la mine, cum reușești să transformi și cea mai obișnuită zi într-una frumoasă. Lângă tine timpul trece prea repede și vreau să rămân în fiecare clipă cât mai mult.</p>
+<p>Îți mulțumesc că ești aici, că mă înțelegi, că mă sprijini și că mă iubești. Promit să te iubesc, să te respect și să te fac fericită cât voi putea de mult.</p>
+<p>Ești cel mai frumos lucru care mi s-a întâmplat vreodată, iar inima mea îți aparține pentru totdeauna.</p>
+<p class="sig">Al tău pentru totdeauna ❤️</p>
+</div>
+</section>
+</main>
+
+<script>
+// Navigare
+const secs=document.querySelectorAll('section'),btns=document.querySelectorAll('nav button');
+function go(p){secs.forEach(s=>s.classList.toggle('on',s.id===p));btns.forEach(b=>b.classList.toggle('on',b.dataset.p===p));window.scrollTo({top:0,behavior:'smooth'})}
+btns.forEach(b=>b.onclick=()=>go(b.dataset.p));
+
+// Inimioare care se ridică
+const box=document.getElementById('hearts'),em=['❤','💖','💕','💗','💘'];
+function heart(){const e=document.createElement('span');e.className='h';e.textContent=em[Math.floor(Math.random()*em.length)];
+e.style.left=Math.random()*100+'%';e.style.fontSize=(14+Math.random()*30)+'px';
+const d=7+Math.random()*7;e.style.animationDuration=d+'s';e.style.animationIterationCount='1';
+box.appendChild(e);setTimeout(()=>e.remove(),d*1000)}
+setInterval(heart,450);for(let i=0;i<10;i++)setTimeout(heart,i*200);
+
+// Întrebări: toate răspunsurile duc la Mașa
+const Q=[
+{q:'Cine este cea mai frumoasă fată din lume?',o:['Mașa','Mașa, evident','Fără discuții, Mașa','Doar Mașa']},
+{q:'Cine are cel mai frumos zâmbet?',o:['Mașa','Mașa, desigur','Mașa mea','Nimeni altcineva decât Mașa']},
+{q:'Pe cine iubesc cel mai mult pe lume?',o:['Pe Mașa','Pe Mașa, bineînțeles','Pe Mașa mea dragă','Numai pe Mașa']},
+{q:'Cine este cea mai bună iubită?',o:['Mașa','Mașa, fără îndoială','Mașa, cu siguranță','Mereu Mașa']},
+{q:'Cu cine vreau să petrec toată viața?',o:['Cu Mașa','Cu Mașa mea','Cu Mașa, pentru totdeauna','Doar cu Mașa']}
+];
+const ok=['Răspuns corect! Era clar doar Mașa! 💖','Exact! Nu putea fi altcineva! 😍','Bravo! Toate drumurile duc la Mașa! ❤️','Corect! Mașa e întotdeauna răspunsul! 💕','Ești genială! Mașa, mereu Mașa! 😘'];
+let i=0;
+const qt=document.getElementById('qt'),qo=document.getElementById('qo'),qf=document.getElementById('qf'),qn=document.getElementById('qn');
+function show(){
+ if(i>=Q.length){qt.innerHTML='🎉 Ai terminat!';qo.innerHTML='';qf.textContent='Ai răspuns la toate întrebările, iar răspunsul a fost mereu același: Mașa. Te iubesc! ❤️';
+  qn.style.display='block';qn.textContent='Începe din nou';qn.onclick=()=>{i=0;show()};return}
+ qt.textContent=(i+1)+'/5. '+Q[i].q;qf.textContent='';qn.style.display='none';qo.innerHTML='';
+ Q[i].o.forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=pick;qo.appendChild(b)})}
+function pick(){qf.textContent=ok[i];qo.querySelectorAll('button').forEach(b=>b.disabled=true);
+ qn.style.display='block';qn.textContent=i<Q.length-1?'Următoarea întrebare →':'Vezi rezultatul';
+ qn.onclick=()=>{i++;show()};for(let k=0;k<6;k++)setTimeout(heart,k*80)}
+show();
+</script>
+</body>
+</html>
